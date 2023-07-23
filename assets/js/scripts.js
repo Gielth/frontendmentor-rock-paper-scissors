@@ -175,11 +175,15 @@ playAgain.addEventListener('click', () => {
 })
 
 bonusGame.addEventListener('click', () => {
-	if(gameScreenOnResults) {
-		if(bonusGameOn) {
+	if (gameScreenOnResults) {
+		if (bonusGameOn) {
 			bonusGameOn = false;
-		} else{
+			rulesImage.src = "./assets/images/image-rules.svg"
+			gameLogo.src = "./assets/images/logo.svg"
+		} else {
 			bonusGameOn = true;
+			rulesImage.src = "./assets/images/image-rules-bonus.svg"
+			gameLogo.src = "./assets/images/logo-bonus.svg"
 		}
 	} else if (bonusGameOn) {
 		bonusGameOn = false;
