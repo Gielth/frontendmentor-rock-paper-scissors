@@ -1,0 +1,227 @@
+@media screen and (max-width: 696px) {
+    .header {
+        max-width: 496px;
+    }
+
+    .game-space .game-results {
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .game-space .game-results .game-results-final {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 2rem;
+    }
+
+    .game-space .game-results .selection span,
+    .game-space .game-results .selection.rock span,
+    .game-space .game-results .selection.paper span,
+    .game-space .game-results .selection.scissors span,
+    .game-space .game-results .selection.lizard span,
+    .game-space .game-results .selection.selection.spock span {
+        padding: 4rem;
+
+    }
+
+    .game-space .game-results .your-selection .selection.rock,
+    .game-space .game-results .cpu-selection .selection.rock {
+        border: .9rem solid hsl(349, 70%, 56%);
+    }
+
+    .game-space .game-results .your-selection .selection.rock span,
+    .game-space .game-results .cpu-selection .selection.rock span {
+        background-size: 3.5rem;
+    }
+
+    .game-space .game-results .your-selection .selection.paper,
+    .game-space .game-results .cpu-selection .selection.paper {
+        border: .9rem solid hsl(230, 89%, 65%);
+    }
+
+    .game-space .game-results .your-selection .selection.paper span,
+    .game-space .game-results .cpu-selection .selection.paper span {
+        background-size: 3.5rem;
+    }
+
+    .game-space .game-results .your-selection .selection.scissors,
+    .game-space .game-results .cpu-selection .selection.scissors {
+        border: .9rem solid hsl(40, 84%, 53%);
+    }
+
+    .game-space .game-results .your-selection .selection.scissors span,
+    .game-space .game-results .cpu-selection .selection.scissors span {
+        background-size: 3.5rem;
+    }
+
+    .game-space .game-results .your-selection .selection.lizard,
+    .game-space .game-results .cpu-selection .selection.lizard {
+        border: .9rem solid hsl(261, 72%, 63%);
+    }
+
+    .game-space .game-results .your-selection .selection.lizard span,
+    .game-space .game-results .cpu-selection .selection.lizard span {
+        background-size: 3.5rem;
+    }
+
+    .game-space .game-results .your-selection .selection.spock,
+    .game-space .game-results .cpu-selection .selection.spock {
+        border: .9rem solid hsl(189, 58%, 57%);
+    }
+
+    .game-space .game-results .your-selection .selection.spock span,
+    .game-space .game-results .cpu-selection .selection.spock span {
+        background-size: 3.5rem;
+    }
+
+    .game-space .game-results .your-selection .selection.rock.winner {
+        box-shadow: 0 8px 0 hsl(349, 71%, 52%), 0 0 0 1.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 4rem hsla(217, 16%, 45%, 0.2), 0 0 0 7.5rem hsla(217, 16%, 45%, 0.1);
+    }
+    
+    .game-space .game-results .your-selection .selection.paper.winner {
+        box-shadow: 0 8px 0 hsl(230, 89%, 62%), 0 0 0 1.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 4rem hsla(217, 16%, 45%, 0.2), 0 0 0 7.5rem hsla(217, 16%, 45%, 0.1);
+    }
+    
+    .game-space .game-results .your-selection .selection.scissors.winner {
+        box-shadow: 0 8px 0 hsl(39, 89%, 49%), 0 0 0 1.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 4rem hsla(217, 16%, 45%, 0.2), 0 0 0 7.5rem hsla(217, 16%, 45%, 0.1);
+    }
+    
+    .game-space .game-results .your-selection .selection.lizard.winner {
+        box-shadow: 0 8px 0 hsl(261, 73%, 60%), 0 0 0 1.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 4rem hsla(217, 16%, 45%, 0.2), 0 0 0 7.5rem hsla(217, 16%, 45%, 0.1);
+    }
+    
+    .game-space .game-results .your-selection .selection.spock.winner {
+        box-shadow: 0 8px 0 hsl(189, 59%, 53%), 0 0 0 1.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 4rem hsla(217, 16%, 45%, 0.2), 0 0 0 7.5rem hsla(217, 16%, 45%, 0.1);
+    }
+}
+
+@media screen and (max-width: 496px) {
+    .header {
+        max-width: 370px;
+        padding: .2rem;
+        justify-content: space-evenly;
+    }
+
+    .game-space .game-selection-bonus .game-container {
+        background-size: 55%;
+    }
+
+    .game-space .game-selection-bonus .game-container .selection .selection-button {
+        background-color: #fff;
+        border-radius: 50%;
+    }
+
+    .game-space .game-selection-bonus .game-container .selection .selection-button img {
+        padding: 2.45rem;
+    }
+
+    #rock.bonus {
+        border: .7rem solid hsl(349, 70%, 56%);
+        margin-top: 3rem;
+        margin-left: 1.5rem;
+    }
+
+    #paper.bonus {
+        border: .7rem solid hsl(230, 89%, 65%);
+        margin-left: 4.5rem;
+        margin-right: 2rem;
+    }
+
+    #scissors.bonus {
+        border: .7rem solid hsl(40, 84%, 53%);
+        margin: 0 14rem;
+    }
+
+    #spock {
+        border: .7rem solid hsl(189, 58%, 57%);
+        margin-left: 2rem;
+        margin-right: 4.5rem;
+    }
+
+    #lizard {
+        border: .7rem solid hsl(261, 72%, 63%);
+        margin-top: 3rem;
+        margin-left: .5rem;
+    }
+
+    .game-space .game-results .game-results-final {
+        bottom: 4rem;
+    }
+
+    .game-space .game-results .game-results-final .game-results-title {
+        font-size: 3rem;
+        width: 16rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .game-space .game-selection .game-container .selection .selection-button img {
+        padding: 2.8rem;
+    }
+
+    .game-space .game-selection .game-container .selection {
+        margin: 3rem;
+    }
+
+    #rock {
+        border: .9rem solid hsl(349, 70%, 56%);
+    }
+
+    #paper {
+        border: .9rem solid hsl(230, 89%, 65%);
+    }
+
+    #scissors {
+        border: .9rem solid hsl(40, 84%, 53%);
+    }
+
+    .game-space .game-results .selection {
+        border: .9rem solid transparent;
+    }
+
+    .game-space .game-results .selection span {
+        padding: 3rem;
+    }
+    
+
+    .game-space .game-results .selection.rock span,
+    .game-space .game-results .selection.paper span,
+    .game-space .game-results .selection.scissors span,
+    .game-space .game-results .selection.lizard span,
+    .game-space .game-results .selection.selection.spock span {
+        padding: 3rem;
+        box-shadow: inset 0 6px 0 #ccc;
+    }
+
+
+    .game-space .game-results .selection-title {
+        font-size: 1rem;
+    }
+
+    .game-space .game-results .your-selection .selection.rock,
+    .game-space .game-results .cpu-selection .selection.rock {
+        box-shadow: 0 6px 0 hsl(349, 71%, 52%);
+    }
+
+    .game-space .game-results .your-selection .selection.paper,
+    .game-space .game-results .cpu-selection .selection.paper {
+        box-shadow: 0 6px 0 hsl(230, 89%, 62%);
+    }
+
+    .game-space .game-results .your-selection .selection.scissors,
+    .game-space .game-results .cpu-selection .selection.scissors {
+        box-shadow: 0 6px 0 hsl(39, 89%, 49%);
+    }
+
+    .game-space .game-results .your-selection .selection.lizard,
+    .game-space .game-results .cpu-selection .selection.lizard {
+        box-shadow: 0 6px 0 hsl(261, 73%, 60%);
+    }
+
+    .game-space .game-results .your-selection .selection.spock,
+    .game-space .game-results .cpu-selection .selection.spock {
+        box-shadow: 0 6px 0 hsl(189, 59%, 53%);
+    }
+
+}

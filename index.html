@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
+    rel="stylesheet">
+
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/header.css">
+  <link rel="stylesheet" href="./assets/css/main-styles.css">
+  <link rel="stylesheet" href="./assets/css/rules.css">
+  <link rel="stylesheet" href="./assets/css/button.css">
+  <link rel="stylesheet" href="./assets/css/game-results.css">
+  <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="game-logo">
+      <img id="logo-image" src="./assets/images/logo.svg" alt="Logo image for the game Rock-Paper-Scissors.">
+    </div>
+    <div class="game-score">
+      <h1 class="game-score-title">Score</h1>
+      <h1 class="game-score-score">0</h1>
+    </div>
+  </header>
+    <main class="game-space">
+    <section class="game-selection">
+      <div class="game-container">
+        <div class="selection">
+          <button class="selection-button" id="paper"><img src="./assets/images/icon-paper.svg"
+              alt="Icon Paper"></button>
+        </div>
+        <div class="selection">
+          <button class="selection-button" id="scissors"><img src="./assets/images/icon-scissors.svg"
+              alt="Icon Scissors"></button>
+        </div>
+        <div class="selection">
+          <button class="selection-button" id="rock"><img src="./assets/images/icon-rock.svg" alt="Icon Rock"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-selection-bonus hidden">
+      <div class="game-container">
+        <div class="selection">
+          <button class="selection-button bonus" id="scissors"><img src="./assets/images/icon-scissors.svg"
+              alt="Icon Scissors"></button>
+        </div>
+        <div class="selection">
+          <button class="selection-button" id="spock"><img src="./assets/images/icon-spock.svg"
+              alt="Icon Rock"></button>
+        </div>
+        <div class="selection">
+          <button class="selection-button bonus" id="paper"><img src="./assets/images/icon-paper.svg"
+              alt="Icon Paper"></button>
+        </div>
+        <div class="selection">
+          <button class="selection-button" id="lizard"><img src="./assets/images/icon-lizard.svg"
+              alt="Icon Rock"></button>
+        </div>
+        <div class="selection">
+          <button class="selection-button bonus" id="rock"><img src="./assets/images/icon-rock.svg" alt="Icon Rock"></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="div-button">
+      <button class="rules" id="rules-button">Rules</button>
+    </div>
+
+    <div class="div-button-bonus">
+      <button class="bonus" id="bonus-button">Bonus Game</button>
+    </div>
+
+    <section class="game-results hidden">
+      <div class="your-selection">
+        <h2 class="selection-title">You Picked</h2>
+        <div class="selection" id="your-selection"><span></span></div>
+      </div>
+      <div class="game-results-final hidden">
+        <h2 class="game-results-title"></h2>
+        <button class="game-play-again" id="play-again">Play Again</button>
+      </div>
+      <div class="cpu-selection">
+        <h2 class="selection-title">The House Picked</h2>
+        <div class="selection" id="cpu-selection"><span></span></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="rules-space">
+    <div class="rules-div">
+      <h2 class="rules-title">Rules</h2>
+      <button class="rules-close" id="close-rules-box"><img src="./assets/images/icon-close.svg" alt=""></button>
+    </div>
+    <img id="rules-image" src="./assets/images/image-rules.svg" alt="">
+  </div>
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/Gielth">Gielth</a>.
+  </footer>
+</body>
+<script src="./assets/js/scripts.js"></script>
+</html>

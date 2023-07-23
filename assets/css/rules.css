@@ -1,0 +1,62 @@
+.rules-space {
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    padding: .3rem;
+    border-radius: 1rem;
+    z-index: 1;
+    backdrop-filter: opacity(20%);
+}
+
+.rules-space .rules-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+}
+
+.rules-space .rules-div .rules-title {
+    text-transform: uppercase;
+    color: hsl(229, 25%, 31%);
+    padding: 1rem;
+}
+
+.rules-space .rules-div .rules-close {
+    background-color: #fff;
+    padding: .25rem;
+}
+
+.rules-space img {
+    padding: .25rem;
+    background-color: #fff;
+}
+
+.game-space .div-button .rules {
+    padding: .4rem 1.55rem;
+    position: absolute;
+    right: .6rem;
+    bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    background-color: transparent;
+    border-radius: .5rem;
+    border: 2px solid hsl(217, 16%, 45%);
+    color: hsl(0, 0%, 85%);
+    letter-spacing: 0.1rem;
+}
+
+.game-space .div-button-bonus .bonus {
+    padding: .4rem .6rem;
+    position: absolute;
+    left: .6rem;
+    bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    background-color: transparent;
+    border-radius: .5rem;
+    border: 2px solid hsl(217, 16%, 45%);
+    color: hsl(0, 0%, 85%);
+    letter-spacing: 0.1rem;
+}

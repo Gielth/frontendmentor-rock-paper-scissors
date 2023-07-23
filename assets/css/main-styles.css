@@ -1,0 +1,38 @@
+
+
+.game-space .game-selection, .game-space .game-selection-bonus {
+    padding: .5rem;
+    width: 596px;
+    height: 74.65vh;
+}
+
+.game-space .game-selection .game-container, .game-space .game-selection-bonus .game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/bg-triangle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.game-space .game-selection-bonus .game-container {
+    display: flex;
+    background-image: url(../images/bg-pentagon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.game-space .game-selection.hidden, .game-space .game-selection-bonus.hidden {
+    display: none;
+}
+
+
+
+
+
+/* - Scissors Gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%)
+- Paper Gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%)
+- Rock Gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%)
+- Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%)
+- Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%) */
