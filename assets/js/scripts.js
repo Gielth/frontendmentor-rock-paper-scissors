@@ -20,6 +20,7 @@ let cpuSelection = '';
 let bonusGameOn = false;
 let playerSelection = '';
 let gameScoreCounter = localStorage.getItem('gameScore');
+let gameScreenOnResults = false;
 
 if (gameScoreCounter === null || gameScoreCounter === undefined) {
 	gameScore.innerText = 0
@@ -81,6 +82,7 @@ function choicesComparation(player, cpu) {
 
 selections.forEach((selection) => {
 	selection.addEventListener('click', () => {
+		gameScreenOnResults = true;
 		playerSelection = selection.attributes.id.value;
 		if (bonusGameOn) {
 			gameSelectionBonusScreen.classList.add('hidden')
@@ -169,11 +171,17 @@ playAgain.addEventListener('click', () => {
 
 	playerSelection = '';
 	cpuSelection = '';
-
+	gameScreenOnResults = false;
 })
 
 bonusGame.addEventListener('click', () => {
-	if (bonusGameOn) {
+	if(gameScreenOnResults) {
+		if(bonusGameOn) {
+			bonusGameOn = false;
+		} else{
+			bonusGameOn = true;
+		}
+	} else if (bonusGameOn) {
 		bonusGameOn = false;
 		console.log(bonusGameOn);
 		gameSelectionBonusScreen.classList.add('hidden');
