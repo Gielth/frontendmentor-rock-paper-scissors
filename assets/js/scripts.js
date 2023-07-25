@@ -19,7 +19,7 @@ const gameSelectionBonusScreen = document.querySelector('.game-selection-bonus')
 let cpuSelection = '';
 let bonusGameOn = false;
 let playerSelection = '';
-let gameScoreCounter = localStorage.getItem('gameScore');
+let gameScoreCounter = Number(localStorage.getItem('gameScore'));
 let gameScreenOnResults = false;
 
 if (gameScoreCounter === null || gameScoreCounter === undefined) {
