@@ -9,6 +9,20 @@
     backdrop-filter: opacity(20%);
 }
 
+.rules-space[opening] {
+    animation: opening 250ms forwards;
+}
+
+.rules-space[closing] {
+    animation: closing 250ms forwards;
+}
+
+.rules-space::backdrop{
+    background-color: #000;
+    opacity: 0.5;
+    backdrop-filter: opacity(50%);
+}
+
 .rules-space .rules-div {
     display: flex;
     flex-direction: row;

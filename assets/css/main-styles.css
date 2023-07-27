@@ -27,7 +27,13 @@
     display: none;
 }
 
+.game-space .game-selection[closing], .game-space .game-selection-bonus[closing] {
+    animation: closing 500ms forwards;
+}
 
+.game-space .game-selection[opening], .game-space .game-selection-bonus[opening] {
+    animation: opening 500ms forwards;
+}
 
 
 

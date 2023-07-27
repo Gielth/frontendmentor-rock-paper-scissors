@@ -1,0 +1,74 @@
+@keyframes easy-in-rock {
+    0% {
+        box-shadow: 0 10px 0 hsl(349, 71%, 52%);
+    }
+
+    100% {
+        box-shadow: 0 10px 0 hsl(349, 71%, 52%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
+        z-index: -1;
+    }
+}
+
+@keyframes easy-in-paper {
+    0% {
+        box-shadow: 0 10px 0 hsl(230, 89%, 62%);
+    }
+
+    100% {
+        box-shadow: 0 10px 0 hsl(230, 89%, 62%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
+        z-index: -1;
+    }
+}
+
+@keyframes easy-in-scissors {
+    0% {
+        box-shadow: 0 10px 0 hsl(39, 89%, 49%);
+    }
+
+    100% {
+        box-shadow: 0 10px 0 hsl(39, 89%, 49%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
+        z-index: -1;
+    }
+}
+
+@keyframes easy-in-lizard {
+    0% {
+        box-shadow: 0 10px 0 hsl(261, 73%, 60%);
+    }
+
+    100% {
+        box-shadow: 0 10px 0 hsl(261, 73%, 60%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
+        z-index: -1;
+    }
+}
+
+@keyframes easy-in-spock {
+    0% {
+        box-shadow: 0 10px 0 hsl(189, 59%, 53%);
+    }
+
+    100% {
+        box-shadow: 0 10px 0 hsl(189, 59%, 53%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
+        z-index: -1;
+    }
+}
+
+@keyframes opening {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes closing {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

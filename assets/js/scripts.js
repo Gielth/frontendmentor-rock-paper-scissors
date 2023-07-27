@@ -85,93 +85,134 @@ selections.forEach((selection) => {
 		gameScreenOnResults = true;
 		playerSelection = selection.attributes.id.value;
 		if (bonusGameOn) {
-			gameSelectionBonusScreen.classList.add('hidden')
+			gameSelectionBonusScreen.setAttribute('closing', '');
+			setTimeout(() => {
+				gameSelectionBonusScreen.classList.add('hidden');
+				gameSelectionBonusScreen.removeAttribute('closing');
+			}, 500);
 		} else {
-			gameSelectionScreen.classList.add('hidden');
+			gameSelectionScreen.setAttribute('closing', '');
+			setTimeout(() => {
+				gameSelectionScreen.classList.add('hidden');
+				gameSelectionScreen.removeAttribute('closing');
+			}, 500);
 		}
-		gameResultsScreen.classList.remove('hidden');
-
-		gameResultsYourSelection.classList.add(playerSelection);
 
 		setTimeout(() => {
-			let cpuRandomNumber;
-			if (bonusGameOn) {
-				cpuRandomNumber = randomNumberGenerator() % 5;
-			} else {
-				cpuRandomNumber = randomNumberGenerator() % 3
-			}
 
-			if (cpuRandomNumber === 0) {
-				gameResultsCPUSelection.classList.add('rock');
-				cpuSelection = 'rock'
-			} else if (cpuRandomNumber === 1) {
-				gameResultsCPUSelection.classList.add('paper');
-				cpuSelection = 'paper'
-			} else if (cpuRandomNumber === 2) {
-				gameResultsCPUSelection.classList.add('scissors');
-				cpuSelection = 'scissors'
-			} else if (cpuRandomNumber === 3) {
-				gameResultsCPUSelection.classList.add('lizard');
-				cpuSelection = 'lizard'
-			} else if (cpuRandomNumber === 4) {
-				gameResultsCPUSelection.classList.add('spock');
-				cpuSelection = 'spock'
-			}
+
+			gameResultsScreen.classList.remove('hidden');
+			gameResultsScreen.setAttribute('opening', '');
 
 			setTimeout(() => {
-				let playerGameResults = choicesComparation(playerSelection, cpuSelection);
-				if (playerGameResults === 'draw') {
-					gameResultsFinalTitle.innerText = 'Draw';
-					gameResultsFinalScreen.classList.remove('hidden');
-				} else if (playerGameResults === 'win') {
-					gameResultsFinalTitle.innerText = 'You win';
-					gameResultsYourSelection.classList.add('winner');
-					gameScoreCounter = gameScoreCounter + 1;
-					gameScore.innerText = gameScoreCounter;
-					gameResultsFinalScreen.classList.remove('hidden');
-				} else if (playerGameResults === 'lose') {
-					gameResultsFinalTitle.innerText = 'You lose';
-					gameResultsCPUSelection.classList.add('winner');
-					gameScoreCounter = gameScoreCounter - 1;
-					if (gameScoreCounter < 0) {
-						gameScoreCounter = 0;
-					}
-					gameScore.innerText = gameScoreCounter;
-					gameResultsFinalScreen.classList.remove('hidden');
+				gameResultsScreen.removeAttribute('opening');
+			}, 500)
+
+			gameResultsYourSelection.classList.add(playerSelection);
+
+			setTimeout(() => {
+				let cpuRandomNumber;
+				if (bonusGameOn) {
+					cpuRandomNumber = randomNumberGenerator() % 5;
+				} else {
+					cpuRandomNumber = randomNumberGenerator() % 3
 				}
-				localStorage.setItem('gameScore', gameScoreCounter);
-			}, 2000)
+
+				if (cpuRandomNumber === 0) {
+					gameResultsCPUSelection.classList.add('rock');
+					cpuSelection = 'rock'
+				} else if (cpuRandomNumber === 1) {
+					gameResultsCPUSelection.classList.add('paper');
+					cpuSelection = 'paper'
+				} else if (cpuRandomNumber === 2) {
+					gameResultsCPUSelection.classList.add('scissors');
+					cpuSelection = 'scissors'
+				} else if (cpuRandomNumber === 3) {
+					gameResultsCPUSelection.classList.add('lizard');
+					cpuSelection = 'lizard'
+				} else if (cpuRandomNumber === 4) {
+					gameResultsCPUSelection.classList.add('spock');
+					cpuSelection = 'spock'
+				}
+
+				setTimeout(() => {
+					let playerGameResults = choicesComparation(playerSelection, cpuSelection);
+					if (playerGameResults === 'draw') {
+						gameResultsFinalTitle.innerText = 'Draw';
+						gameResultsFinalScreen.classList.remove('hidden');
+						gameResultsFinalScreen.setAttribute('opening', '');
+						setTimeout(() => {
+							gameResultsFinalScreen.removeAttribute('opening');
+						}, 500);
+					} else if (playerGameResults === 'win') {
+						gameResultsFinalTitle.innerText = 'You win';
+						gameResultsYourSelection.classList.add('winner');
+						gameScoreCounter = gameScoreCounter + 1;
+						gameScore.innerText = gameScoreCounter;
+						gameResultsFinalScreen.classList.remove('hidden');
+						gameResultsFinalScreen.setAttribute('opening', '');
+						setTimeout(() => {
+							gameResultsFinalScreen.removeAttribute('opening');
+						}, 500);
+					} else if (playerGameResults === 'lose') {
+						gameResultsFinalTitle.innerText = 'You lose';
+						gameResultsCPUSelection.classList.add('winner');
+						gameScoreCounter = gameScoreCounter - 1;
+						if (gameScoreCounter < 0) {
+							gameScoreCounter = 0;
+						}
+						gameScore.innerText = gameScoreCounter;
+						gameResultsFinalScreen.classList.remove('hidden');
+						gameResultsFinalScreen.setAttribute('opening', '');
+						setTimeout(() => {
+							gameResultsFinalScreen.removeAttribute('opening');
+						}, 500);
+					}
+					localStorage.setItem('gameScore', gameScoreCounter);
+				}, 2000)
 
 
-		}, 2000);
-
+			}, 2000);
+		}, 500);
 
 	})
 })
 
 playAgain.addEventListener('click', () => {
-	gameResultsScreen.classList.add('hidden');
-	gameResultsFinalScreen.classList.add('hidden');
-	if (bonusGameOn) {
-		gameSelectionBonusScreen.classList.remove('hidden');
-	} else {
-		gameSelectionScreen.classList.remove('hidden');
-	}
-	gameResultsFinalTitle.innerText = '';
-	gameResultsYourSelection.classList.remove(playerSelection);
-	gameResultsCPUSelection.classList.remove(cpuSelection);
+	gameResultsScreen.setAttribute('closing', '');
+	setTimeout(() => {
+		gameResultsScreen.classList.add('hidden');
+		gameResultsScreen.removeAttribute('closing');
+		gameResultsFinalScreen.classList.add('hidden');
+		if (bonusGameOn) {
+			gameSelectionBonusScreen.setAttribute('opening', '');
+			gameSelectionBonusScreen.classList.remove('hidden');
+			setTimeout(() => {
+				gameSelectionBonusScreen.removeAttribute('opening');
+			}, 500)
+		} else {
+			gameSelectionScreen.setAttribute('opening', '');
+			gameSelectionScreen.classList.remove('hidden');
+			setTimeout(() => {
+				gameSelectionScreen.removeAttribute('opening');
+			}, 500)
+		}
+		gameResultsFinalTitle.innerText = '';
+		gameResultsYourSelection.classList.remove(playerSelection);
+		gameResultsCPUSelection.classList.remove(cpuSelection);
 
-	if (gameResultsYourSelection.classList.contains('winner')) {
-		gameResultsYourSelection.classList.remove('winner')
-	}
+		if (gameResultsYourSelection.classList.contains('winner')) {
+			gameResultsYourSelection.classList.remove('winner')
+		}
 
-	if (gameResultsCPUSelection.classList.contains('winner')) {
-		gameResultsCPUSelection.classList.remove('winner')
-	}
+		if (gameResultsCPUSelection.classList.contains('winner')) {
+			gameResultsCPUSelection.classList.remove('winner')
+		}
 
-	playerSelection = '';
-	cpuSelection = '';
-	gameScreenOnResults = false;
+		playerSelection = '';
+		cpuSelection = '';
+		gameScreenOnResults = false;
+	}, 500);
 })
 
 bonusGame.addEventListener('click', () => {
@@ -180,33 +221,71 @@ bonusGame.addEventListener('click', () => {
 			bonusGameOn = false;
 			rulesImage.src = "./assets/images/image-rules.svg"
 			gameLogo.src = "./assets/images/logo.svg"
+			bonusGame.innerText = 'Bonus Games'
 		} else {
 			bonusGameOn = true;
 			rulesImage.src = "./assets/images/image-rules-bonus.svg"
 			gameLogo.src = "./assets/images/logo-bonus.svg"
+			bonusGame.innerText = 'Normal Game';
 		}
 	} else if (bonusGameOn) {
 		bonusGameOn = false;
-		console.log(bonusGameOn);
-		gameSelectionBonusScreen.classList.add('hidden');
-		gameSelectionScreen.classList.remove('hidden');
-		rulesImage.src = "./assets/images/image-rules.svg"
-		gameLogo.src = "./assets/images/logo.svg"
+		gameSelectionBonusScreen.setAttribute('closing', '');
+		setTimeout(() => {
+			gameSelectionBonusScreen.classList.add('hidden');
+			gameSelectionBonusScreen.removeAttribute('closing');
+			gameSelectionScreen.classList.remove('hidden');
+			gameSelectionScreen.setAttribute('opening', '');
+			setTimeout(() => {
+				gameSelectionScreen.removeAttribute('opening');
+			}, 500)
+			rulesImage.src = "./assets/images/image-rules.svg"
+			gameLogo.src = "./assets/images/logo.svg"
+			bonusGame.innerText = 'Bonus Games'
+		}, 500);
 	} else {
 		bonusGameOn = true;
-		gameSelectionScreen.classList.add('hidden');
-		gameSelectionBonusScreen.classList.remove('hidden');
-		rulesImage.src = "./assets/images/image-rules-bonus.svg"
-		gameLogo.src = "./assets/images/logo-bonus.svg"
+		gameSelectionScreen.setAttribute('closing', '');
+		setTimeout(() => {
+			gameSelectionScreen.classList.add('hidden');
+			gameSelectionScreen.removeAttribute('closing');
+			gameSelectionBonusScreen.classList.remove('hidden');
+			gameSelectionBonusScreen.setAttribute('opening', '');
+			setTimeout(() => {
+				gameSelectionBonusScreen.removeAttribute('opening');
+			}, 500)
+			rulesImage.src = "./assets/images/image-rules-bonus.svg"
+			gameLogo.src = "./assets/images/logo-bonus.svg"
+			bonusGame.innerText = 'Normal Game';
+		}, 500);
 	}
 
 })
 
 rulesButtonOpen.addEventListener('click', () => {
+	rulesSpace.setAttribute('opening', '');
 	rulesSpace.style.display = 'block';
+	setTimeout(() => {
+		rulesSpace.removeAttribute('opening');
+	}, 250)
 })
 
 rulesButtonClose.addEventListener('click', () => {
-	rulesSpace.style.display = 'none';
+	rulesSpace.setAttribute('closing', '');
+	setTimeout(() => {
+		rulesSpace.style.display = 'none';
+		rulesSpace.removeAttribute('closing');
+	}, 250);
+})
+
+
+window.addEventListener('click', (event) => {
+	if (event.target.nodeName === 'BODY' || event.target.nodeName === 'SECTION' || event.target.nodeName === 'MAIN') {
+		rulesSpace.setAttribute('closing', '');
+		setTimeout(() => {
+			rulesSpace.style.display = 'none';
+			rulesSpace.removeAttribute('closing');
+		}, 250);
+	}
 })
 
