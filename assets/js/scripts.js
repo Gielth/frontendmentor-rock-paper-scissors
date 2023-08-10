@@ -36,46 +36,63 @@ function randomNumberGenerator() {
 function choicesComparation(player, cpu) {
 	if (player === cpu) {
 		return 'draw';
-	} else if (player === 'rock' && cpu === 'lizard') {
+	} else if (player === 'rock' && cpu === 'lizard' || player === 'rock' && cpu === 'scissors' || player === 'paper' && cpu === 'rock' || player === 'paper' && cpu === 'spock' || player === 'scissors' && cpu === 'paper' || player === 'scissors' && cpu === 'lizard' || player === 'lizard' && cpu === 'spock' || player === 'lizard' && cpu === 'paper' || player === 'spock' && cpu === 'rock' || player === 'spock' && cpu === 'scissors') {
 		return 'win';
-	} else if (player === 'rock' && cpu === 'scissors') {
-		return 'win';
-	} else if (player === 'paper' && cpu === 'rock') {
-		return 'win';
-	} else if (player === 'paper' && cpu === 'spock') {
-		return 'win';
-	} else if (player === 'scissors' && cpu === 'paper') {
-		return 'win';
-	} else if (player === 'scissors' && cpu === 'lizard') {
-		return 'win';
-	} else if (player === 'lizard' && cpu === 'spock') {
-		return 'win';
-	} else if (player === 'lizard' && cpu === 'paper') {
-		return 'win';
-	} else if (player === 'spock' && cpu === 'rock') {
-		return 'win';
-	} else if (player === 'spock' && cpu === 'scissors') {
-		return 'win';
-	} else if (cpu === 'rock' && player === 'lizard') {
+	} else {
 		return 'lose';
-	} else if (cpu === 'rock' && player === 'scissors') {
-		return 'lose';
-	} else if (cpu === 'paper' && player === 'rock') {
-		return 'lose';
-	} else if (cpu === 'paper' && player === 'spock') {
-		return 'lose';
-	} else if (cpu === 'scissors' && player === 'paper') {
-		return 'lose';
-	} else if (cpu === 'scissors' && player === 'lizard') {
-		return 'lose';
-	} else if (cpu === 'lizard' && player === 'spock') {
-		return 'lose';
-	} else if (cpu === 'lizard' && player === 'paper') {
-		return 'lose';
-	} else if (cpu === 'spock' && player === 'rock') {
-		return 'lose';
-	} else if (cpu === 'spock' && player === 'scissors') {
-		return 'lose';
+	}
+}
+
+function cpuChoiceCheck(cpuRandomNumber) {
+	if (cpuRandomNumber === 0) {
+		gameResultsCPUSelection.classList.add('rock');
+		cpuSelection = 'rock';
+	} else if (cpuRandomNumber === 1) {
+		gameResultsCPUSelection.classList.add('paper');
+		cpuSelection = 'paper';
+	} else if (cpuRandomNumber === 2) {
+		gameResultsCPUSelection.classList.add('scissors');
+		cpuSelection = 'scissors';
+	} else if (cpuRandomNumber === 3) {
+		gameResultsCPUSelection.classList.add('lizard');
+		cpuSelection = 'lizard';
+	} else if (cpuRandomNumber === 4) {
+		gameResultsCPUSelection.classList.add('spock');
+		cpuSelection = 'spock';
+	}
+}
+
+function defineGameResults(playerGameResults) {
+	if (playerGameResults === 'draw') {
+		gameResultsFinalTitle.innerText = 'Draw';
+		gameResultsFinalScreen.classList.remove('hidden');
+		gameResultsFinalScreen.setAttribute('opening', '');
+		setTimeout(() => {
+			gameResultsFinalScreen.removeAttribute('opening');
+		}, 500);
+	} else if (playerGameResults === 'win') {
+		gameResultsFinalTitle.innerText = 'You win';
+		gameResultsYourSelection.classList.add('winner');
+		gameScoreCounter = gameScoreCounter + 1;
+		gameScore.innerText = gameScoreCounter;
+		gameResultsFinalScreen.classList.remove('hidden');
+		gameResultsFinalScreen.setAttribute('opening', '');
+		setTimeout(() => {
+			gameResultsFinalScreen.removeAttribute('opening');
+		}, 500);
+	} else if (playerGameResults === 'lose') {
+		gameResultsFinalTitle.innerText = 'You lose';
+		gameResultsCPUSelection.classList.add('winner');
+		gameScoreCounter = gameScoreCounter - 1;
+		if (gameScoreCounter < 0) {
+			gameScoreCounter = 0;
+		}
+		gameScore.innerText = gameScoreCounter;
+		gameResultsFinalScreen.classList.remove('hidden');
+		gameResultsFinalScreen.setAttribute('opening', '');
+		setTimeout(() => {
+			gameResultsFinalScreen.removeAttribute('opening');
+		}, 500);
 	}
 }
 
@@ -118,56 +135,11 @@ selections.forEach((selection) => {
 					cpuRandomNumber = randomNumberGenerator() % 3
 				}
 
-				if (cpuRandomNumber === 0) {
-					gameResultsCPUSelection.classList.add('rock');
-					cpuSelection = 'rock'
-				} else if (cpuRandomNumber === 1) {
-					gameResultsCPUSelection.classList.add('paper');
-					cpuSelection = 'paper'
-				} else if (cpuRandomNumber === 2) {
-					gameResultsCPUSelection.classList.add('scissors');
-					cpuSelection = 'scissors'
-				} else if (cpuRandomNumber === 3) {
-					gameResultsCPUSelection.classList.add('lizard');
-					cpuSelection = 'lizard'
-				} else if (cpuRandomNumber === 4) {
-					gameResultsCPUSelection.classList.add('spock');
-					cpuSelection = 'spock'
-				}
+				cpuChoiceCheck(cpuRandomNumber);
 
 				setTimeout(() => {
 					let playerGameResults = choicesComparation(playerSelection, cpuSelection);
-					if (playerGameResults === 'draw') {
-						gameResultsFinalTitle.innerText = 'Draw';
-						gameResultsFinalScreen.classList.remove('hidden');
-						gameResultsFinalScreen.setAttribute('opening', '');
-						setTimeout(() => {
-							gameResultsFinalScreen.removeAttribute('opening');
-						}, 500);
-					} else if (playerGameResults === 'win') {
-						gameResultsFinalTitle.innerText = 'You win';
-						gameResultsYourSelection.classList.add('winner');
-						gameScoreCounter = gameScoreCounter + 1;
-						gameScore.innerText = gameScoreCounter;
-						gameResultsFinalScreen.classList.remove('hidden');
-						gameResultsFinalScreen.setAttribute('opening', '');
-						setTimeout(() => {
-							gameResultsFinalScreen.removeAttribute('opening');
-						}, 500);
-					} else if (playerGameResults === 'lose') {
-						gameResultsFinalTitle.innerText = 'You lose';
-						gameResultsCPUSelection.classList.add('winner');
-						gameScoreCounter = gameScoreCounter - 1;
-						if (gameScoreCounter < 0) {
-							gameScoreCounter = 0;
-						}
-						gameScore.innerText = gameScoreCounter;
-						gameResultsFinalScreen.classList.remove('hidden');
-						gameResultsFinalScreen.setAttribute('opening', '');
-						setTimeout(() => {
-							gameResultsFinalScreen.removeAttribute('opening');
-						}, 500);
-					}
+					defineGameResults(playerGameResults);
 					localStorage.setItem('gameScore', gameScoreCounter);
 				}, 2000)
 
@@ -288,4 +260,7 @@ window.addEventListener('click', (event) => {
 		}, 250);
 	}
 })
+
+
+
 
