@@ -14,7 +14,8 @@ const gameResultsCPUSelection = document.getElementById('cpu-selection');
 const gameResultsYourSelection = document.getElementById('your-selection');
 const gameResultsFinalTitle = document.querySelector('.game-results-title');
 const gameResultsFinalScreen = document.querySelector('.game-results-final');
-const gameSelectionBonusScreen = document.querySelector('.game-selection-bonus');
+/* const gameSelectionBonusScreen = document.querySelector('.game-selection-bonus'); */
+const selectionButtonsDiv = document.querySelectorAll('.selection');
 
 let cpuSelection = '';
 let bonusGameOn = false;
@@ -101,19 +102,11 @@ selections.forEach((selection) => {
 	selection.addEventListener('click', () => {
 		gameScreenOnResults = true;
 		playerSelection = selection.attributes.id.value;
-		if (bonusGameOn) {
-			gameSelectionBonusScreen.setAttribute('closing', '');
-			setTimeout(() => {
-				gameSelectionBonusScreen.classList.add('hidden');
-				gameSelectionBonusScreen.removeAttribute('closing');
-			}, 500);
-		} else {
-			gameSelectionScreen.setAttribute('closing', '');
-			setTimeout(() => {
-				gameSelectionScreen.classList.add('hidden');
-				gameSelectionScreen.removeAttribute('closing');
-			}, 500);
-		}
+		gameSelectionScreen.setAttribute('closing', '');
+		setTimeout(() => {
+			gameSelectionScreen.classList.add('hidden');
+			gameSelectionScreen.removeAttribute('closing');
+		}, 500);
 
 		setTimeout(() => {
 
@@ -156,19 +149,11 @@ playAgain.addEventListener('click', () => {
 		gameResultsScreen.classList.add('hidden');
 		gameResultsScreen.removeAttribute('closing');
 		gameResultsFinalScreen.classList.add('hidden');
-		if (bonusGameOn) {
-			gameSelectionBonusScreen.setAttribute('opening', '');
-			gameSelectionBonusScreen.classList.remove('hidden');
-			setTimeout(() => {
-				gameSelectionBonusScreen.removeAttribute('opening');
-			}, 500)
-		} else {
-			gameSelectionScreen.setAttribute('opening', '');
-			gameSelectionScreen.classList.remove('hidden');
-			setTimeout(() => {
-				gameSelectionScreen.removeAttribute('opening');
-			}, 500)
-		}
+		gameSelectionScreen.setAttribute('opening', '');
+		gameSelectionScreen.classList.remove('hidden');
+		setTimeout(() => {
+			gameSelectionScreen.removeAttribute('opening');
+		}, 500)
 		gameResultsFinalTitle.innerText = '';
 		gameResultsYourSelection.classList.remove(playerSelection);
 		gameResultsCPUSelection.classList.remove(cpuSelection);
@@ -188,48 +173,44 @@ playAgain.addEventListener('click', () => {
 })
 
 bonusGame.addEventListener('click', () => {
-	if (gameScreenOnResults) {
-		if (bonusGameOn) {
-			bonusGameOn = false;
-			rulesImage.src = "./assets/images/image-rules.svg"
-			gameLogo.src = "./assets/images/logo.svg"
-			bonusGame.innerText = 'Bonus Games'
-		} else {
-			bonusGameOn = true;
-			rulesImage.src = "./assets/images/image-rules-bonus.svg"
-			gameLogo.src = "./assets/images/logo-bonus.svg"
-			bonusGame.innerText = 'Normal Game';
-		}
-	} else if (bonusGameOn) {
+	if (bonusGameOn) {
 		bonusGameOn = false;
-		gameSelectionBonusScreen.setAttribute('closing', '');
-		setTimeout(() => {
-			gameSelectionBonusScreen.classList.add('hidden');
-			gameSelectionBonusScreen.removeAttribute('closing');
-			gameSelectionScreen.classList.remove('hidden');
-			gameSelectionScreen.setAttribute('opening', '');
-			setTimeout(() => {
-				gameSelectionScreen.removeAttribute('opening');
-			}, 500)
-			rulesImage.src = "./assets/images/image-rules.svg"
-			gameLogo.src = "./assets/images/logo.svg"
-			bonusGame.innerText = 'Bonus Games'
-		}, 500);
+		gameSelectionScreen.classList.add('game-selection');
+		selectionButtonsDiv.forEach((element) => {
+			if (element.classList.contains('lizard') || element.classList.contains('spock')) {
+				element.classList.add('hidden')
+			} else if (element.classList.contains('bonus')) {
+				element.classList.remove('bonus')
+			}
+		})
+		selections.forEach((element) => {
+			if (element.attributes.id.value === 'paper' || element.attributes.id.value === 'scissors' || element.attributes.id.value === 'rock') {
+				element.classList.remove('bonus');
+			}
+		})
+		gameSelectionScreen.classList.remove('game-selection-bonus');
+		rulesImage.src = "./assets/images/image-rules.svg"
+		gameLogo.src = "./assets/images/logo.svg"
+		bonusGame.innerText = 'Bonus Game';
 	} else {
 		bonusGameOn = true;
-		gameSelectionScreen.setAttribute('closing', '');
-		setTimeout(() => {
-			gameSelectionScreen.classList.add('hidden');
-			gameSelectionScreen.removeAttribute('closing');
-			gameSelectionBonusScreen.classList.remove('hidden');
-			gameSelectionBonusScreen.setAttribute('opening', '');
-			setTimeout(() => {
-				gameSelectionBonusScreen.removeAttribute('opening');
-			}, 500)
-			rulesImage.src = "./assets/images/image-rules-bonus.svg"
-			gameLogo.src = "./assets/images/logo-bonus.svg"
-			bonusGame.innerText = 'Normal Game';
-		}, 500);
+		gameSelectionScreen.classList.add('game-selection-bonus');
+		selectionButtonsDiv.forEach((element) => {
+			if (element.classList.contains('paper') || element.classList.contains('scissors') || element.classList.contains('rock')) {
+				element.classList.add('bonus')
+			} else if (element.classList.contains('hidden')) {
+				element.classList.remove('hidden')
+			}
+		})
+		selections.forEach((element) => {
+			if (element.attributes.id.value === 'paper' || element.attributes.id.value === 'scissors' || element.attributes.id.value === 'rock') {
+				element.classList.add('bonus');
+			}
+		})
+		gameSelectionScreen.classList.remove('game-selection');
+		rulesImage.src = "./assets/images/image-rules-bonus.svg"
+		gameLogo.src = "./assets/images/logo-bonus.svg"
+		bonusGame.innerText = 'Normal Game';
 	}
 
 })

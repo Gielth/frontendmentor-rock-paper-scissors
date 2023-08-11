@@ -38,40 +38,24 @@
     <main class="game-space">
     <section class="game-selection">
       <div class="game-container">
-        <div class="selection">
+        <div class="selection paper">
           <button class="selection-button" id="paper"><img src="./assets/images/icon-paper.svg"
               alt="Icon Paper"></button>
         </div>
-        <div class="selection">
+        <div class="selection scissors">
           <button class="selection-button" id="scissors"><img src="./assets/images/icon-scissors.svg"
               alt="Icon Scissors"></button>
         </div>
-        <div class="selection">
+        <div class="selection rock">
           <button class="selection-button" id="rock"><img src="./assets/images/icon-rock.svg" alt="Icon Rock"></button>
         </div>
-      </div>
-    </section>
-
-    <section class="game-selection-bonus hidden">
-      <div class="game-container">
-        <div class="selection">
-          <button class="selection-button bonus" id="scissors"><img src="./assets/images/icon-scissors.svg"
-              alt="Icon Scissors"></button>
-        </div>
-        <div class="selection">
-          <button class="selection-button" id="spock"><img src="./assets/images/icon-spock.svg"
-              alt="Icon Rock"></button>
-        </div>
-        <div class="selection">
-          <button class="selection-button bonus" id="paper"><img src="./assets/images/icon-paper.svg"
-              alt="Icon Paper"></button>
-        </div>
-        <div class="selection">
+        <div class="selection hidden lizard">
           <button class="selection-button" id="lizard"><img src="./assets/images/icon-lizard.svg"
               alt="Icon Rock"></button>
         </div>
-        <div class="selection">
-          <button class="selection-button bonus" id="rock"><img src="./assets/images/icon-rock.svg" alt="Icon Rock"></button>
+        <div class="selection hidden spock">
+          <button class="selection-button" id="spock"><img src="./assets/images/icon-spock.svg"
+              alt="Icon Rock"></button>
         </div>
       </div>
     </section>
@@ -87,7 +71,7 @@
     <section class="game-results hidden">
       <div class="your-selection">
         <h2 class="selection-title">You Picked</h2>
-        <div class="selection" id="your-selection"><span></span></div>
+        <div class="final-selection" id="your-selection"><span></span></div>
       </div>
       <div class="game-results-final hidden">
         <h2 class="game-results-title"></h2>
@@ -95,7 +79,7 @@
       </div>
       <div class="cpu-selection">
         <h2 class="selection-title">The House Picked</h2>
-        <div class="selection" id="cpu-selection"><span></span></div>
+        <div class="final-selection" id="cpu-selection"><span></span></div>
       </div>
     </section>
   </main>

@@ -43,7 +43,7 @@
     text-transform: uppercase;
 }
 
-.game-space .game-results .selection span {
+.game-space .game-results .final-selection span {
     padding: 5rem;
     background-color: hsl(237, 48%, 17%);
     width: 4rem;
@@ -93,46 +93,46 @@
     background-color: #fff;
 } */
 
-.game-space .game-results .your-selection .selection.rock.winner,
-.game-space .game-results .cpu-selection .selection.rock.winner {
+.game-space .game-results .your-selection .final-selection.rock.winner,
+.game-space .game-results .cpu-selection .final-selection.rock.winner {
     box-shadow: 0 10px 0 hsl(349, 71%, 52%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
     animation: easy-in-rock 2000ms forwards;
     z-index: -1;
 }
 
-.game-space .game-results .your-selection .selection.paper.winner,
-.game-space .game-results .cpu-selection .selection.paper.winner {
+.game-space .game-results .your-selection .final-selection.paper.winner,
+.game-space .game-results .cpu-selection .final-selection.paper.winner {
     box-shadow: 0 10px 0 hsl(230, 89%, 62%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
     animation: easy-in-paper 2000ms forwards;
     z-index: -1;
 }
 
-.game-space .game-results .your-selection .selection.scissors.winner,
-.game-space .game-results .cpu-selection .selection.scissors.winner {
+.game-space .game-results .your-selection .final-selection.scissors.winner,
+.game-space .game-results .cpu-selection .final-selection.scissors.winner {
     box-shadow: 0 10px 0 hsl(39, 89%, 49%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
     animation: easy-in-scissors 1250ms forwards;
     z-index: -1;
 }
 
-.game-space .game-results .your-selection .selection.lizard.winner,
-.game-space .game-results .cpu-selection .selection.lizard.winner {
+.game-space .game-results .your-selection .final-selection.lizard.winner,
+.game-space .game-results .cpu-selection .final-selection.lizard.winner {
     box-shadow: 0 10px 0 hsl(261, 73%, 60%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
     animation: easy-in-lizard 1250ms forwards;
     z-index: -1;
 }
 
-.game-space .game-results .your-selection .selection.spock.winner,
-.game-space .game-results .cpu-selection .selection.spock.winner {
+.game-space .game-results .your-selection .final-selection.spock.winner,
+.game-space .game-results .cpu-selection .final-selection.spock.winner {
     box-shadow: 0 10px 0 hsl(189, 59%, 53%), 0 0 0 3.5rem hsla(217, 16%, 45%, 0.3), 0 0 0 7rem hsla(217, 16%, 45%, 0.2), 0 0 0 10.5rem hsla(217, 16%, 45%, 0.1);
     animation: easy-in-spock 1250ms forwards;
     z-index: -1;
 }
 
-.game-space .game-results .selection.rock span,
-.game-space .game-results .selection.paper span,
-.game-space .game-results .selection.scissors span,
-.game-space .game-results .selection.lizard span,
-.game-space .game-results .selection.selection.spock span {
+.game-space .game-results .final-selection.rock span,
+.game-space .game-results .final-selection.paper span,
+.game-space .game-results .final-selection.scissors span,
+.game-space .game-results .final-selection.lizard span,
+.game-space .game-results .final-selection.spock span {
     width: 1.125rem;
     background-color: #fff;
     height: 1.125rem;
@@ -143,8 +143,8 @@
     position: inherit;
 }
 
-.game-space .game-results .your-selection .selection.rock,
-.game-space .game-results .cpu-selection .selection.rock {
+.game-space .game-results .your-selection .final-selection.rock,
+.game-space .game-results .cpu-selection .final-selection.rock {
     border: 1.4rem solid hsl(349, 70%, 56%);
     box-shadow: 0 10px 0 hsl(349, 71%, 52%);
     backdrop-filter: contrast(80%);
@@ -152,8 +152,8 @@
     border-radius: 50%;
 }
 
-.game-space .game-results .your-selection .selection.rock span,
-.game-space .game-results .cpu-selection .selection.rock span {
+.game-space .game-results .your-selection .final-selection.rock span,
+.game-space .game-results .cpu-selection .final-selection.rock span {
     background-image: url(../images/icon-rock.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -161,16 +161,16 @@
     z-index: 1;
 }
 
-.game-space .game-results .your-selection .selection.paper,
-.game-space .game-results .cpu-selection .selection.paper {
+.game-space .game-results .your-selection .final-selection.paper,
+.game-space .game-results .cpu-selection .final-selection.paper {
     border: 1.4rem solid hsl(230, 89%, 65%);
     box-shadow: 0 10px 0 hsl(230, 89%, 62%);
     filter: brightness(0.9);
     border-radius: 50%;
 }
 
-.game-space .game-results .your-selection .selection.paper span,
-.game-space .game-results .cpu-selection .selection.paper span {
+.game-space .game-results .your-selection .final-selection.paper span,
+.game-space .game-results .cpu-selection .final-selection.paper span {
     background-image: url(../images/icon-paper.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -178,8 +178,8 @@
     z-index: 1;
 }
 
-.game-space .game-results .your-selection .selection.scissors,
-.game-space .game-results .cpu-selection .selection.scissors {
+.game-space .game-results .your-selection .final-selection.scissors,
+.game-space .game-results .cpu-selection .final-selection.scissors {
     border: 1.4rem solid hsl(40, 84%, 53%);
     box-shadow: 0 10px 0 hsl(39, 89%, 49%);
     backdrop-filter: contrast(80%);
@@ -187,8 +187,8 @@
     border-radius: 50%;
 }
 
-.game-space .game-results .your-selection .selection.scissors span,
-.game-space .game-results .cpu-selection .selection.scissors span {
+.game-space .game-results .your-selection .final-selection.scissors span,
+.game-space .game-results .cpu-selection .final-selection.scissors span {
     background-image: url(../images/icon-scissors.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -196,17 +196,16 @@
     z-index: 1;
 }
 
-.game-space .game-results .your-selection .selection.lizard,
-.game-space .game-results .cpu-selection .selection.lizard {
+.game-space .game-results .your-selection .final-selection.lizard,
+.game-space .game-results .cpu-selection .final-selection.lizard {
     border: 1.4rem solid hsl(261, 72%, 63%);
     box-shadow: 0 10px 0 hsl(261, 73%, 60%);
-    ;
     filter: brightness(0.9);
     border-radius: 50%;
 }
 
-.game-space .game-results .your-selection .selection.lizard span,
-.game-space .game-results .cpu-selection .selection.lizard span {
+.game-space .game-results .your-selection .final-selection.lizard span,
+.game-space .game-results .cpu-selection .final-selection.lizard span {
     background-image: url(../images/icon-lizard.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -214,16 +213,16 @@
     z-index: 1;
 }
 
-.game-space .game-results .your-selection .selection.spock,
-.game-space .game-results .cpu-selection .selection.spock {
+.game-space .game-results .your-selection .final-selection.spock,
+.game-space .game-results .cpu-selection .final-selection.spock {
     border: 1.4rem solid hsl(189, 58%, 57%);
     box-shadow: 0 10px 0 hsl(189, 59%, 53%);
     filter: brightness(0.9);
     border-radius: 50%;
 }
 
-.game-space .game-results .your-selection .selection.spock span,
-.game-space .game-results .cpu-selection .selection.spock span {
+.game-space .game-results .your-selection .final-selection.spock span,
+.game-space .game-results .cpu-selection .final-selection.spock span {
     background-image: url(../images/icon-spock.svg);
     background-repeat: no-repeat;
     background-position: center;
